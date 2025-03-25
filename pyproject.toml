@@ -1,0 +1,30 @@
+[project]
+name = "docker-fastapi-deploy"
+version = "0.1.0"
+description = "App to use docker and fastapi to deploy ML model to production"
+authors = [
+    {name = "shruti",email = "shruti.personified@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "scikit-learn (>=1.6.1,<2.0.0)",
+    "fastapi (>=0.115.12,<0.116.0)",
+    "uvicorn (>=0.34.0,<0.35.0)",
+    "joblib (>=1.4.2,<2.0.0)",
+    "pytest (>=8.3.5,<9.0.0)"
+]
+
+[tool.poetry]
+packages = [{include = "docker_fastapi_deploy", from = "src"}]
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^25.1.0"
+isort = "^6.0.1"
+flake8 = "^7.1.2"
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
