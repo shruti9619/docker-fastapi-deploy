@@ -28,3 +28,6 @@ flake8 = "^7.1.2"
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poe.tasks]
+train = "python -m docker_fastapi_deploy.train --model-name model.pkl"
