@@ -1,4 +1,5 @@
 import argparse
+import pathlib
 from sklearn.datasets import load_iris
 from sklearn.ensemble import RandomForestClassifier
 import joblib
@@ -13,8 +14,9 @@ def train_model(model_name: str):
     model = RandomForestClassifier(n_estimators=100, verbose=1)
     model.fit(X, y)
 
+    model_path = pathlib.Path(__file__).parent / model_name
     # Save model
-    joblib.dump(model, model_name)
+    joblib.dump(model, model_path)
     print(f"Model trained and saved as {model_name}")
 
 
