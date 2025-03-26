@@ -25,6 +25,7 @@ def init_args():
     parser.add_argument("--model-name", type=str, default="model.pkl")
     return parser.parse_args()
 
+
 if __name__ == "__main__":
     args = init_args()
     train_model(args.model_name)
