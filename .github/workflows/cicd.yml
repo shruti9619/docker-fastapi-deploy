@@ -21,10 +21,10 @@ jobs:
         poetry run pytest
     - name: Build Docker image
       run: |
-        docker build -t mlops-demo .
+        docker build -t docker-fastapi-deploy .
     - name: Test Docker container
       run: |
-        docker run -d -p 80:80 --name mlops-demo mlops-demo
+        docker run -d -p 80:80 --name docker-fastapi-deploy docker-fastapi-deploy
         sleep 5
         curl -X POST http://localhost/predict -H "Content-Type: application/json" -d '{"data": [5.1, 3.5, 1.4, 0.2]}'
     - name: Build and Release Package
