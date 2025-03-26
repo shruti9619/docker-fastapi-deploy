@@ -1,6 +1,9 @@
 name: CI/CD Pipeline
 on: [push]
 
+permissions:
+  contents: write  # Needed for releases
+
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
@@ -31,6 +34,7 @@ jobs:
       if: github.ref == 'refs/heads/main'
       run: |
         poetry build
+        ls -la dist/ 
         gh release create v0.1.0 dist/* --title "v0.1.0" --notes "Initial release"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
